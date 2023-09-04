@@ -1,0 +1,56 @@
+
+<div *ngIf="loginFlag==0">
+    <mat-card>
+    <mat-card-title>Login</mat-card-title>
+    <mat-card-content>
+
+<form (ngSubmit)="login()">
+<mat-form-field>
+    <input type="text" matInput name="username" placeholder="Username"  [(ngModel)]="userDetails.emailId" >
+</mat-form-field>
+<mat-form-field>
+    <input type="password" matInput name="password" placeholder="Password" [(ngModel)]="userDetails.password">
+</mat-form-field>
+<a routerLink="">Forgot Password?</a><br><br>
+<button color="primary" mat-raised-button style="width: 100%;">Login</button><br><br>
+<p>Don't have an account? <a style="color: blue;" (click)="moveToSignup()">Signup</a></p>
+</form>
+
+</mat-card-content>
+</mat-card>
+</div>
+
+<div *ngIf="loginFlag==1">
+<mat-card>
+    <mat-card-title>Sign up</mat-card-title>
+    <mat-card-content>
+
+<form (ngSubmit)="registerUser()">
+<mat-form-field>
+    <input type="text" matInput name="firstName" placeholder="First Name"  [(ngModel)]="userDetails.firstName" required>
+    <mat-error>First Name required!</mat-error>
+</mat-form-field>
+<mat-form-field>
+    <input type="text" matInput name="lastName" placeholder="Last Name" [(ngModel)]="userDetails.lastName" required>
+    <mat-error>Last Name required!</mat-error>
+</mat-form-field>
+<mat-form-field>
+    <input type="text" matInput name="emailId" placeholder="Email" [(ngModel)]="userDetails.emailId" required>
+    <mat-error>Email required!</mat-error>
+</mat-form-field>
+<mat-form-field>
+    <input type="password" matInput name="password" placeholder="Create password" [(ngModel)]="userDetails.password" required>
+    <mat-error>Password required!</mat-error>
+</mat-form-field>
+<mat-form-field>
+    <input type="password" matInput name="ConfirmPassword" placeholder="Confirm password" [(ngModel)]="userDetails.confirmPassword" required>
+    <mat-error>please confirm password</mat-error>
+</mat-form-field>
+<button color="primary" mat-raised-button>Signup</button><br><br>
+<p>Already have an account? <a style="color: blue;" (click)="moveToLogin()">Login</a></p>
+</form>
+
+
+</mat-card-content>
+</mat-card>
+</div>
